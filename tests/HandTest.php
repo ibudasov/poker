@@ -18,12 +18,13 @@ class HandTest extends TestCase
     {
         $this->expectException(SorryOnly5CardsAreAllowedAccordingToTheRules::class);
 
-        new Hand([
+        new Hand(...[
             new Card(Rank::ACE(), Suit::CLUBS()),
             new Card(Rank::KING(), Suit::CLUBS()),
             new Card(Rank::JACK(), Suit::CLUBS()),
             new Card(Rank::QUEEN(), Suit::CLUBS()),
             new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::SEVEN(), Suit::CLUBS()),
         ]);
     }
 }

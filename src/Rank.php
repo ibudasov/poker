@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Poker;
 
+use MyCLabs\Enum\Enum;
+
 /**
  * @method static self ACE()
  * @method static self KING()
@@ -19,7 +21,7 @@ namespace Poker;
  * @method static self THREE()
  * @method static self TWO()
  */
-class Rank
+class Rank extends Enum
 {
     private const ACE = 'A';
     private const KING = 'K';
