@@ -26,6 +26,11 @@ class Hand
         $sortedCards = [];
 
         foreach ($this->cards as $card) {
+
+            /**
+             * @todo: ⚠️ If there are 2 cards of the same rank - they will be merged
+             */
+
             $sortedCards[$card->getValueOfTheCard()] = $card;
         }
 
