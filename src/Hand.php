@@ -12,7 +12,7 @@ class Hand
     public function __construct(Card ...$cards)
     {
         if (count($cards) > 5) {
-            throw new SorryOnly5CardsAreAllowedAccordingToTheRules();
+            throw new SorryMax5CardsAreAllowedAccordingToTheRules();
         }
 
         $this->cards = $cards;
