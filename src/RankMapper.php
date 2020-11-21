@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Poker;
-
 
 class RankMapper
 {
@@ -10,31 +10,31 @@ class RankMapper
     {
         switch ($rank) {
             case Rank::ACE():
-                return 1;
+                return 13;
             case Rank::KING():
-                return 2;
+                return 12;
             case Rank::QUEEN():
-                return 3;
+                return 11;
             case Rank::JACK():
-                return 4;
+                return 10;
             case Rank::TEN():
-                return 5;
+                return 9;
             case Rank::NINE():
-                return 6;
+                return 8;
             case Rank::EIGHT():
                 return 7;
             case Rank::SEVEN():
-                return 8;
+                return 6;
             case Rank::SIX():
-                return 9;
+                return 5;
             case Rank::FIVE():
-                return 10;
+                return 4;
             case Rank::FOUR():
-                return 11;
+                return 3;
             case Rank::THREE():
-                return 12;
+                return 2;
             case Rank::TWO():
-                return 13;
+                return 1;
         }
     }
 }

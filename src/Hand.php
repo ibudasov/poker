@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Poker;
 
+use function array_values;
+
 class Hand
 {
     /** @var Card[] */
@@ -16,5 +18,21 @@ class Hand
         }
 
         $this->cards = $cards;
+    }
+
+    /** @return Card[] */
+    public function getCardsInTheHandSortedByRank(): array
+    {
+        $sortedCards = [];
+
+        foreach ($this->cards as $card) {
+            $sortedCards[$card->getValueOfTheCard()] = $card;
+        }
+
+        krsort($sortedCards);
+
+        $sortedCards = array_values($sortedCards);
+
+        return $sortedCards;
     }
 }

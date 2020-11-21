@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests;
 
-use Poker\Card;
 use PHPUnit\Framework\TestCase;
+use Poker\Card;
 use Poker\Rank;
 use Poker\Suit;
 
@@ -32,6 +33,6 @@ class CardTest extends TestCase
     {
         $card = new Card(Rank::TEN(), Suit::CLUBS());
 
-        self::assertEquals(5, $card->getValueOfTheCard());
+        self::assertEquals(9, $card->getValueOfTheCard());
     }
 }

@@ -27,4 +27,27 @@ class HandTest extends TestCase
             new Card(Rank::SEVEN(), Suit::CLUBS()),
         ]);
     }
+
+    /** @test */
+    public function cards_get_sorted(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::ACE(), Suit::CLUBS()),
+            new Card(Rank::SEVEN(), Suit::CLUBS()),
+            new Card(Rank::KING(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+        ]);
+
+        self::assertEquals(
+            [
+                new Card(Rank::ACE(), Suit::CLUBS()),
+                new Card(Rank::KING(), Suit::CLUBS()),
+                new Card(Rank::JACK(), Suit::CLUBS()),
+                new Card(Rank::TEN(), Suit::CLUBS()),
+                new Card(Rank::SEVEN(), Suit::CLUBS()),
+            ],
+            $hand->getCardsInTheHandSortedByRank()
+        );
+    }
 }
