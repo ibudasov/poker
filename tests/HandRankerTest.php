@@ -7,6 +7,7 @@ use Poker\Card;
 use Poker\Hand;
 use Poker\HandRanker;
 use PHPUnit\Framework\TestCase;
+use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HighCard;
 use Poker\HandRankings\Pair;
 use Poker\HandRankings\ThreeOfAKind;
@@ -61,6 +62,22 @@ class HandRankerTest extends TestCase
         $handRanker = new HandRanker();
 
         self::assertEquals(ThreeOfAKind::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
+    }
+
+    /** @test */
+    public function fullHouse_is_chosen_among_other_rankings_when_applicable(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::TEN(), Suit::HEARTS()),
+            new Card(Rank::KING(), Suit::DIAMONDS()),
+            new Card(Rank::KING(), Suit::HEARTS()),
+            new Card(Rank::KING(), Suit::CLUBS()),
+        ]);
+
+        $handRanker = new HandRanker();
+
+        self::assertEquals(FullHouse::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
     }
 
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Poker;
 
+use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HandRanking;
 use Poker\HandRankings\HighCard;
 use Poker\HandRankings\Pair;
@@ -15,6 +16,7 @@ class HandRanker
      * @todo: use getSortingPriorityOfThisRanking here to avoid logic duplication
      */
     private const PRIORITIZED_LIST_OF_RANKINGS = [
+        FullHouse::class,
         ThreeOfAKind::class,
         Pair::class,
         HighCard::class,
