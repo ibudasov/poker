@@ -57,6 +57,6 @@ class Hand
             $whatIsInTheHand .= $card->getRank()->getValue();
         }
 
-        return 0 !== preg_match('/^' . $whatIsInTheHand . '/', $ranksInTheSequence);
+        return 0 !== preg_match('/'.$whatIsInTheHand.'/', $ranksInTheSequence);
     }
 }
