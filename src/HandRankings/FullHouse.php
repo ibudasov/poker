@@ -24,11 +24,6 @@ class FullHouse implements HandRanking
             false !== array_search(2, $weightedRanks, true);
     }
 
-    public function getMatchedSequence(Hand $hand): array
-    {
-        throw new \Exception('❗️ getMatchedSequence() needs to be implemented');
-    }
-
     public static function getSortingPriorityOfThisRanking(): int
     {
         return 4;

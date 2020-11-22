@@ -23,11 +23,6 @@ class ThreeOfAKind implements HandRanking
         return false !== array_search(3, $weightedRanks, true);
     }
 
-    public function getMatchedSequence(Hand $hand): array
-    {
-        throw new \Exception('❗️ getMatchedSequence() needs to be implemented');
-    }
-
     public static function getSortingPriorityOfThisRanking(): int
     {
         return 7;

@@ -11,8 +11,5 @@ interface HandRanking
 {
     public function matchesThis(Hand $hand): bool;
 
-    /** @return Card[] */
-    public function getMatchedSequence(Hand $hand): array;
-
     public static function getSortingPriorityOfThisRanking(): int;
 }

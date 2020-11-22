@@ -23,11 +23,6 @@ class HighCard implements HandRanking
         return true;
     }
 
-    public function getMatchedSequence(Hand $hand): array
-    {
-        return [current($hand->getCardsInTheHandSortedByRank())];
-    }
-
     public static function getSortingPriorityOfThisRanking(): int
     {
         return 10;

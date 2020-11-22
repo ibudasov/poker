@@ -14,7 +14,7 @@ use Poker\Suit;
 class HighCardTest extends TestCase
 {
     /** @test */
-    public function make_sure_that_actually_highest_card_is_ranked_and_returned(): void
+    public function highCard_can_be_detected_if_its_there(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -26,6 +26,6 @@ class HighCardTest extends TestCase
 
         $ranking = new HighCard();
 
-        self::assertEquals([new Card(Rank::ACE(), Suit::CLUBS())], $ranking->getMatchedSequence($hand));
+        self::assertTrue($ranking->matchesThis($hand));
     }
 }
