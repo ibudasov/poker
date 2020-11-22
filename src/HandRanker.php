@@ -4,33 +4,37 @@ declare(strict_types=1);
 
 namespace Poker;
 
+use LogicException;
 use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HandRanking;
 use Poker\HandRankings\HighCard;
 use Poker\HandRankings\Pair;
 use Poker\HandRankings\ThreeOfAKind;
+use function ksort;
 
 class HandRanker
 {
-    /**
-     * @todo: use getSortingPriorityOfThisRanking here to avoid logic duplication
-     */
-    private const PRIORITIZED_LIST_OF_RANKINGS = [
-        FullHouse::class,
-        ThreeOfAKind::class,
-        Pair::class,
-        HighCard::class,
-    ];
+    /** @return HandRanking[] */
+    private function getPrioritizedListOfRankings(): array
+    {
+        $list[FullHouse::getSortingPriorityOfThisRanking()] = new FullHouse();
+        $list[ThreeOfAKind::getSortingPriorityOfThisRanking()] = new ThreeOfAKind();
+        $list[Pair::getSortingPriorityOfThisRanking()] = new Pair();
+        $list[HighCard::getSortingPriorityOfThisRanking()] = new HighCard();
+
+        ksort($list);
+
+        return $list;
+    }
 
     public function rankTheHand(Hand $hand): int
     {
-        foreach (self::PRIORITIZED_LIST_OF_RANKINGS as $rankingClassName) {
-            /** @var HandRanking $ranking */
-            $ranking = new $rankingClassName();
-
-            if ($ranking->matchesThis($hand)) {
-                return $ranking::getSortingPriorityOfThisRanking();
+        foreach ($this->getPrioritizedListOfRankings() as $handRanking) {
+            if ($handRanking->matchesThis($hand)) {
+                return $handRanking::getSortingPriorityOfThisRanking();
             }
         }
+
+        throw new LogicException('We could not determine the rank of the hand, it seems to be a programming mistake');
     }
 }
