@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Poker;
 
 use function array_multisort;
+use function current;
 use function preg_match;
 use const SORT_DESC;
 
@@ -58,5 +59,17 @@ class Hand
         }
 
         return 0 !== preg_match('/'.$whatIsInTheHand.'/', $ranksInTheSequence);
+    }
+
+    public function areTheCardsOfTheSameSuit(): bool
+    {
+        $previousCard = current($this->getCardsInTheHand());
+        foreach ($this->getCardsInTheHand() as $card) {
+            if ($card->getSuit()->getValue() !== $previousCard->getSuit()->getValue()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

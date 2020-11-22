@@ -16,11 +16,8 @@ class RoyalFlush implements HandRanking
             return false;
         }
 
-        $previousCard = current($hand->getCardsInTheHand());
-        foreach ($hand->getCardsInTheHand() as $card) {
-            if ($card->getSuit()->getValue() !== $previousCard->getSuit()->getValue()) {
-                return false;
-            }
+        if(false === $hand->areTheCardsOfTheSameSuit()) {
+            return false;
         }
 
         return current($hand->getCardsInTheHandSortedByRank())
