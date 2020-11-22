@@ -9,7 +9,7 @@ use Poker\Hand;
 
 final class Pair implements HandRanking
 {
-    public function matchesThis(Hand $hand): bool
+    function matchesThis(Hand $hand): bool
     {
         $ranksWhichAreThereInTheHand = [];
 
@@ -23,7 +23,7 @@ final class Pair implements HandRanking
         return false;
     }
 
-    public static function getSortingPriorityOfThisRanking(): int
+    static function getSortingPriorityOfThisRanking(): int
     {
         return 9;
     }

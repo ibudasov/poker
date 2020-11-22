@@ -10,7 +10,7 @@ use Poker\Hand;
 
 final class FullHouse implements HandRanking
 {
-    public function matchesThis(Hand $hand): bool
+    function matchesThis(Hand $hand): bool
     {
         $ranksWhichAreThereInTheHand = [];
 
@@ -24,7 +24,7 @@ final class FullHouse implements HandRanking
             false !== array_search(2, $weightedRanks, true);
     }
 
-    public static function getSortingPriorityOfThisRanking(): int
+    static function getSortingPriorityOfThisRanking(): int
     {
         return 4;
     }

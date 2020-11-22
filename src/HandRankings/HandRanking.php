@@ -8,7 +8,7 @@ use Poker\Hand;
 
 interface HandRanking
 {
-    public function matchesThis(Hand $hand): bool;
+    function matchesThis(Hand $hand): bool;
 
-    public static function getSortingPriorityOfThisRanking(): int;
+    static function getSortingPriorityOfThisRanking(): int;
 }

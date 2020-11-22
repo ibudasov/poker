@@ -6,7 +6,7 @@ namespace Poker;
 
 final class RankMapper
 {
-    public static function getValueOfRank(Rank $rank): int
+    static function getValueOfRank(Rank $rank): int
     {
         switch ($rank) {
             case Rank::ACE():

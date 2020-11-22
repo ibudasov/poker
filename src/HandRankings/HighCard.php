@@ -14,7 +14,7 @@ use Poker\Hand;
  */
 final class HighCard implements HandRanking
 {
-    public function matchesThis(Hand $hand): bool
+    function matchesThis(Hand $hand): bool
     {
         /*
          * In every hand there is a high card, so this this is always true
@@ -22,7 +22,7 @@ final class HighCard implements HandRanking
         return true;
     }
 
-    public static function getSortingPriorityOfThisRanking(): int
+    static function getSortingPriorityOfThisRanking(): int
     {
         return 10;
     }

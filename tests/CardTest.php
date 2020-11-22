@@ -12,7 +12,7 @@ use Poker\Suit;
 final class CardTest extends TestCase
 {
     /** @test */
-    public function card_can_be_created_from_string(): void
+    function card_can_be_created_from_string(): void
     {
         $card = Card::fromString('10♥');
 
@@ -21,7 +21,7 @@ final class CardTest extends TestCase
     }
 
     /** @test */
-    public function card_can_be_translated_to_string(): void
+    function card_can_be_translated_to_string(): void
     {
         $card = new Card(Rank::TEN(), Suit::CLUBS());
 
@@ -29,7 +29,7 @@ final class CardTest extends TestCase
     }
 
     /** @test */
-    public function the_value_of_the_card_can_be_determined(): void
+    function the_value_of_the_card_can_be_determined(): void
     {
         $card = new Card(Rank::TEN(), Suit::CLUBS());
 

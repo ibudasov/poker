@@ -33,7 +33,7 @@ final class HandRanker
         return $list;
     }
 
-    public function rankTheHand(Hand $hand): int
+    function rankTheHand(Hand $hand): int
     {
         foreach ($this->getPrioritizedListOfRankings() as $handRanking) {
             if ($handRanking->matchesThis($hand)) {

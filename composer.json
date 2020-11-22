@@ -20,10 +20,6 @@
         "phpunit/phpunit": "^7.0"
     },
     "scripts": {
-        "fix": [
-            "vendor/bin/php-cs-fixer fix src --rules=@Symfony",
-            "vendor/bin/php-cs-fixer fix tests --rules=@Symfony"
-        ],
         "test": "./vendor/bin/phpunit tests",
         "test:coverage": "vendor/bin/phpunit tests --coverage-html=var/test-coverage --coverage-clover=clover.xml"
     },

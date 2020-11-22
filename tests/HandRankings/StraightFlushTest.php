@@ -14,7 +14,7 @@ use Poker\Suit;
 final class StraightFlushTest extends TestCase
 {
     /** @test */
-    public function straightFlush_are_detected_nicely(): void
+    function straightFlush_are_detected_nicely(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TWO(), Suit::CLUBS()),
@@ -30,7 +30,7 @@ final class StraightFlushTest extends TestCase
     }
 
     /** @test */
-    public function straightFlush_is_not_detected_when_there_are_different_suits(): void
+    function straightFlush_is_not_detected_when_there_are_different_suits(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TWO(), Suit::HEARTS()),
@@ -46,7 +46,7 @@ final class StraightFlushTest extends TestCase
     }
 
     /** @test */
-    public function straightFlush_is_not_detected_when_there_is_no_sequence_of_5(): void
+    function straightFlush_is_not_detected_when_there_is_no_sequence_of_5(): void
     {
         $hand = new Hand(...[
             new Card(Rank::ACE(), Suit::CLUBS()),

@@ -15,33 +15,33 @@ final class Card
     /** @var Suit */
     private $suit;
 
-    public function __construct(Rank $rank, Suit $suit)
+    function __construct(Rank $rank, Suit $suit)
     {
         $this->rank = $rank;
         $this->suit = $suit;
     }
 
-    public function getRank(): Rank
+    function getRank(): Rank
     {
         return $this->rank;
     }
 
-    public function getSuit(): Suit
+    function getSuit(): Suit
     {
         return $this->suit;
     }
 
-    public function getValueOfTheCard(): int
+    function getValueOfTheCard(): int
     {
         return RankMapper::getValueOfRank($this->getRank());
     }
 
-    public function __toString(): string
+    function __toString(): string
     {
         return $this->getRank()->getValue().$this->getSuit()->getValue();
     }
 
-    public static function fromString(string $cardAsString): self
+    static function fromString(string $cardAsString): self
     {
         if (3 === mb_strlen($cardAsString, 'UTF-8')) {
             return new self(

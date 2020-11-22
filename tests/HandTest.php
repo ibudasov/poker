@@ -14,7 +14,7 @@ use Poker\Suit;
 final class HandTest extends TestCase
 {
     /** @test */
-    public function max_5_cards_are_allowed_in_the_hand(): void
+    function max_5_cards_are_allowed_in_the_hand(): void
     {
         $this->expectException(SorryMax5CardsAreAllowedAccordingToTheRules::class);
 
@@ -29,7 +29,7 @@ final class HandTest extends TestCase
     }
 
     /** @test */
-    public function cards_get_sorted(): void
+    function cards_get_sorted(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -52,7 +52,7 @@ final class HandTest extends TestCase
     }
 
     /** @test */
-    public function cards_get_sorted_even_with_a_few_same_ranks(): void
+    function cards_get_sorted_even_with_a_few_same_ranks(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -75,7 +75,7 @@ final class HandTest extends TestCase
     }
 
     /** @test */
-    public function sequence_of_5_cards_can_be_detected(): void
+    function sequence_of_5_cards_can_be_detected(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -89,7 +89,7 @@ final class HandTest extends TestCase
     }
 
     /** @test */
-    public function sequence_of_5_cards_CANNOT_be_detected_if_its_NOT_there(): void
+    function sequence_of_5_cards_CANNOT_be_detected_if_its_NOT_there(): void
     {
         $hand = new Hand(...[
             new Card(Rank::SEVEN(), Suit::CLUBS()),

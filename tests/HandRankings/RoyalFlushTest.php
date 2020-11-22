@@ -14,7 +14,7 @@ use Poker\Suit;
 final class RoyalFlushTest extends TestCase
 {
     /** @test */
-    public function royalFlush_is_detected_nicely(): void
+    function royalFlush_is_detected_nicely(): void
     {
         $hand = new Hand(...[
             new Card(Rank::ACE(), Suit::CLUBS()),
@@ -30,7 +30,7 @@ final class RoyalFlushTest extends TestCase
     }
 
     /** @test */
-    public function royalFlush_is_not_detected_when_the_highest_card_is_not_Ace(): void
+    function royalFlush_is_not_detected_when_the_highest_card_is_not_Ace(): void
     {
         $hand = new Hand(...[
             new Card(Rank::KING(), Suit::CLUBS()),
@@ -46,7 +46,7 @@ final class RoyalFlushTest extends TestCase
     }
 
     /** @test */
-    public function royalFlush_is_not_detected_when_the_there_are_different_suits(): void
+    function royalFlush_is_not_detected_when_the_there_are_different_suits(): void
     {
         $hand = new Hand(...[
             new Card(Rank::ACE(), Suit::HEARTS()),

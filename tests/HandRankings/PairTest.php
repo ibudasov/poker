@@ -14,7 +14,7 @@ use Poker\Suit;
 final class PairTest extends TestCase
 {
     /** @test */
-    public function pair_of_card_can_be_detected_if_its_there(): void
+    function pair_of_card_can_be_detected_if_its_there(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -30,7 +30,7 @@ final class PairTest extends TestCase
     }
 
     /** @test */
-    public function pair_of_card_can_NOT_be_detected_if_its_NOT_there(): void
+    function pair_of_card_can_NOT_be_detected_if_its_NOT_there(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),

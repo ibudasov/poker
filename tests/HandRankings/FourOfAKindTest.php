@@ -14,7 +14,7 @@ use Poker\Suit;
 final class FourOfAKindTest extends TestCase
 {
     /** @test */
-    public function fourOfAKind_are_detected_nicely(): void
+    function fourOfAKind_are_detected_nicely(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -30,7 +30,7 @@ final class FourOfAKindTest extends TestCase
     }
 
     /** @test */
-    public function FourOfAKind_shall_not_be_detected_if_not_applicable(): void
+    function FourOfAKind_shall_not_be_detected_if_not_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),

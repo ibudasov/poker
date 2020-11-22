@@ -10,7 +10,7 @@ use Poker\Rank;
 
 final class RoyalFlush implements HandRanking
 {
-    public function matchesThis(Hand $hand): bool
+    function matchesThis(Hand $hand): bool
     {
         if (false === $hand->isThereASequenceOf5()) {
             return false;
@@ -25,7 +25,7 @@ final class RoyalFlush implements HandRanking
             ->equals(Rank::ACE());
     }
 
-    public static function getSortingPriorityOfThisRanking(): int
+    static function getSortingPriorityOfThisRanking(): int
     {
         return 1;
     }

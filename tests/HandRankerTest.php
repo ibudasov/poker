@@ -21,7 +21,7 @@ use Poker\Suit;
 final class HandRankerTest extends TestCase
 {
     /** @test */
-    public function highCard_is_chosen_among_other_rankings_when_applicable(): void
+    function highCard_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -37,7 +37,7 @@ final class HandRankerTest extends TestCase
     }
 
     /** @test */
-    public function pair_ranking_is_chosen_among_other_rankings_when_applicable(): void
+    function pair_ranking_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -53,7 +53,7 @@ final class HandRankerTest extends TestCase
     }
 
     /** @test */
-    public function threeOfAKind_is_chosen_among_other_rankings_when_applicable(): void
+    function threeOfAKind_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -69,7 +69,7 @@ final class HandRankerTest extends TestCase
     }
 
     /** @test */
-    public function fullHouse_is_chosen_among_other_rankings_when_applicable(): void
+    function fullHouse_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -85,7 +85,7 @@ final class HandRankerTest extends TestCase
     }
 
     /** @test */
-    public function fourOfAKind_is_chosen_among_other_rankings_when_applicable(): void
+    function fourOfAKind_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -101,7 +101,7 @@ final class HandRankerTest extends TestCase
     }
 
     /** @test */
-    public function straightFlush_is_chosen_among_other_rankings_when_applicable(): void
+    function straightFlush_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TWO(), Suit::CLUBS()),
@@ -117,7 +117,7 @@ final class HandRankerTest extends TestCase
     }
 
     /** @test */
-    public function royalFlush_is_chosen_among_other_rankings_when_applicable(): void
+    function royalFlush_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::ACE(), Suit::CLUBS()),

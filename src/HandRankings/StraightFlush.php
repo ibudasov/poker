@@ -8,7 +8,7 @@ use Poker\Hand;
 
 final class StraightFlush implements HandRanking
 {
-    public function matchesThis(Hand $hand): bool
+    function matchesThis(Hand $hand): bool
     {
         if (false === $hand->isThereASequenceOf5()) {
             return false;
@@ -21,7 +21,7 @@ final class StraightFlush implements HandRanking
         return true;
     }
 
-    public static function getSortingPriorityOfThisRanking(): int
+    static function getSortingPriorityOfThisRanking(): int
     {
         return 2;
     }

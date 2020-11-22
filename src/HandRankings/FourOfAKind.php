@@ -10,7 +10,7 @@ use Poker\Hand;
 
 final class FourOfAKind implements HandRanking
 {
-    public function matchesThis(Hand $hand): bool
+    function matchesThis(Hand $hand): bool
     {
         $ranksWhichAreThereInTheHand = [];
 
@@ -23,7 +23,7 @@ final class FourOfAKind implements HandRanking
         return false !== array_search(4, $weightedRanks, true);
     }
 
-    public static function getSortingPriorityOfThisRanking(): int
+    static function getSortingPriorityOfThisRanking(): int
     {
         return 3;
     }

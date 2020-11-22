@@ -14,7 +14,7 @@ use Poker\Suit;
 final class FullHouseTest extends TestCase
 {
     /** @test */
-    public function fullHouse_can_be_detected_if_its_there(): void
+    function fullHouse_can_be_detected_if_its_there(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -30,7 +30,7 @@ final class FullHouseTest extends TestCase
     }
 
     /** @test */
-    public function fullHouse_CANNOT_be_detected_if_its_NOT_there(): void
+    function fullHouse_CANNOT_be_detected_if_its_NOT_there(): void
     {
         $hand = new Hand(...[
             new Card(Rank::NINE(), Suit::CLUBS()),

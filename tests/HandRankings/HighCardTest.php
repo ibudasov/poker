@@ -14,7 +14,7 @@ use Poker\Suit;
 final class HighCardTest extends TestCase
 {
     /** @test */
-    public function highCard_can_be_detected_if_its_there(): void
+    function highCard_can_be_detected_if_its_there(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),

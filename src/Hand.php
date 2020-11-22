@@ -14,7 +14,7 @@ final class Hand
     /** @var Card[] */
     private $cards;
 
-    public function __construct(Card ...$cards)
+    function __construct(Card ...$cards)
     {
         if (count($cards) > 5) {
             throw new SorryMax5CardsAreAllowedAccordingToTheRules();
@@ -24,13 +24,13 @@ final class Hand
     }
 
     /** @return Card[] */
-    public function getCardsInTheHand(): array
+    function getCardsInTheHand(): array
     {
         return $this->cards;
     }
 
     /** @return Card[] */
-    public function getCardsInTheHandSortedByRank(): array
+    function getCardsInTheHandSortedByRank(): array
     {
         $unsortedCards = [];
 
@@ -48,7 +48,7 @@ final class Hand
         return $sortedCards;
     }
 
-    public function isThereASequenceOf5(): bool
+    function isThereASequenceOf5(): bool
     {
         $ranksInTheSequence = 'AKQJ1098765432';
 
@@ -61,7 +61,7 @@ final class Hand
         return 0 !== preg_match('/'.$whatIsInTheHand.'/', $ranksInTheSequence);
     }
 
-    public function areTheCardsOfTheSameSuit(): bool
+    function areTheCardsOfTheSameSuit(): bool
     {
         $previousCard = current($this->getCardsInTheHand());
         foreach ($this->getCardsInTheHand() as $card) {
