@@ -16,7 +16,6 @@
         }
     },
     "require-dev": {
-        "mockery/mockery": "^1.0",
         "friendsofphp/php-cs-fixer": "^2.9",
         "phpunit/phpunit": "^7.0"
     },
@@ -26,9 +25,7 @@
             "vendor/bin/php-cs-fixer fix tests --rules=@Symfony"
         ],
         "test": "./vendor/bin/phpunit tests",
-        "test:coverage": "vendor/bin/phpunit tests --coverage-html=var/test-coverage --coverage-clover=clover.xml",
-        "test:watch": "fswatch -o ./tests -o ./src | xargs -n1 -I{} ./vendor/bin/phpunit ./tests",
-        "run": "echo 'Banaan'"
+        "test:coverage": "vendor/bin/phpunit tests --coverage-html=var/test-coverage --coverage-clover=clover.xml"
     },
     "license": "MIT",
     "authors": [
