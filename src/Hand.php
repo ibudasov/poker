@@ -21,6 +21,12 @@ class Hand
     }
 
     /** @return Card[] */
+    public function getCardsInTheHand(): array
+    {
+        return $this->cards;
+    }
+
+    /** @return Card[] */
     public function getCardsInTheHandSortedByRank(): array
     {
         $sortedCards = [];
