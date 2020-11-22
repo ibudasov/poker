@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Poker;
 
+use function ksort;
 use LogicException;
 use Poker\HandRankings\FourOfAKind;
 use Poker\HandRankings\FullHouse;
@@ -13,7 +14,6 @@ use Poker\HandRankings\Pair;
 use Poker\HandRankings\RoyalFlush;
 use Poker\HandRankings\StraightFlush;
 use Poker\HandRankings\ThreeOfAKind;
-use function ksort;
 
 class HandRanker
 {

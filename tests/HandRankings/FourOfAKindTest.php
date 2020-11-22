@@ -1,13 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\HandRankings;
 
+use PHPUnit\Framework\TestCase;
 use Poker\Card;
 use Poker\Hand;
 use Poker\HandRankings\FourOfAKind;
-use PHPUnit\Framework\TestCase;
-use Poker\HandRankings\ThreeOfAKind;
 use Poker\Rank;
 use Poker\Suit;
 

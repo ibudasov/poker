@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests;
 
+use PHPUnit\Framework\TestCase;
 use Poker\Card;
 use Poker\Hand;
 use Poker\HandRanker;
-use PHPUnit\Framework\TestCase;
 use Poker\HandRankings\FourOfAKind;
 use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HighCard;
@@ -130,5 +131,4 @@ class HandRankerTest extends TestCase
 
         self::assertEquals(RoyalFlush::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
     }
-
 }

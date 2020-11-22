@@ -101,5 +101,4 @@ class HandTest extends TestCase
 
         self::assertFalse($hand->isThereASequenceOf5());
     }
-
 }

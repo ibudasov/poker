@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Poker\HandRankings;
 
-use function current;
 use Poker\Card;
 use Poker\Hand;
 

@@ -1,19 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\HandRankings;
 
+use PHPUnit\Framework\TestCase;
 use Poker\Card;
 use Poker\Hand;
-use Poker\HandRankings\HighCard;
 use Poker\HandRankings\Pair;
-use PHPUnit\Framework\TestCase;
 use Poker\Rank;
 use Poker\Suit;
 
 class PairTest extends TestCase
 {
-
     /** @test */
     public function pair_of_card_can_be_detected_if_its_there(): void
     {

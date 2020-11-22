@@ -16,7 +16,7 @@ class RoyalFlush implements HandRanking
             return false;
         }
 
-        if(false === $hand->areTheCardsOfTheSameSuit()) {
+        if (false === $hand->areTheCardsOfTheSameSuit()) {
             return false;
         }
 
