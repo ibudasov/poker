@@ -1,20 +1,20 @@
 <?php
-
 declare(strict_types=1);
 
-namespace Tests\HandRankings;
+namespace Tests;
 
-use PHPUnit\Framework\TestCase;
 use Poker\Card;
 use Poker\Hand;
+use Poker\HandRanker;
+use PHPUnit\Framework\TestCase;
 use Poker\HandRankings\HighCard;
 use Poker\Rank;
 use Poker\Suit;
 
-class HighCardTest extends TestCase
+class HandRankerTest extends TestCase
 {
     /** @test */
-    public function make_sure_that_actually_highest_card_is_ranked_and_returned(): void
+    public function highCard_ranking_work_for_us_when_needed(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -24,8 +24,8 @@ class HighCardTest extends TestCase
             new Card(Rank::JACK(), Suit::CLUBS()),
         ]);
 
-        $ranking = new HighCard();
+        $handRanker = new HandRanker();
 
-        self::assertEquals([new Card(Rank::ACE(), Suit::CLUBS())], $ranking->getMatchedSequence($hand));
+        self::assertEquals(HighCard::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
     }
 }

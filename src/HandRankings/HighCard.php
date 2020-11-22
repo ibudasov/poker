@@ -8,6 +8,11 @@ use function current;
 use Poker\Card;
 use Poker\Hand;
 
+/**
+ * Five cards which do not form any of the combinations listed above. When comparing two such hands, the one with the
+ * better highest card wins. If the highest cards are equal the second cards are compared; if they are equal too the
+ * third cards are compared, and so on. So A-J-9-5-3 beats A-10-9-6-4 because the jack beats the ten.
+ */
 class HighCard implements HandRanking
 {
     public function matchesThis(Hand $hand): bool
@@ -18,13 +23,13 @@ class HighCard implements HandRanking
         return true;
     }
 
-    public function getRankingValueOfThis(Hand $hand): int
-    {
-        return current($hand->getCardsInTheHandSortedByRank())->getValueOfTheCard();
-    }
-
     public function getMatchedSequence(Hand $hand): array
     {
         return [current($hand->getCardsInTheHandSortedByRank())];
+    }
+
+    public static function getSortingPriorityOfThisRanking(): int
+    {
+        return 10;
     }
 }
