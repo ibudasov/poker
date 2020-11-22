@@ -50,4 +50,27 @@ class HandTest extends TestCase
             $hand->getCardsInTheHandSortedByRank()
         );
     }
+
+    /** @test */
+    public function cards_get_sorted_even_with_a_few_same_ranks(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::TEN(), Suit::HEARTS()),
+            new Card(Rank::TEN(), Suit::DIAMONDS()),
+            new Card(Rank::KING(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+        ]);
+
+        self::assertEquals(
+            [
+                new Card(Rank::KING(), Suit::CLUBS()),
+                new Card(Rank::JACK(), Suit::CLUBS()),
+                new Card(Rank::TEN(), Suit::CLUBS()),
+                new Card(Rank::TEN(), Suit::HEARTS()),
+                new Card(Rank::TEN(), Suit::DIAMONDS()),
+            ],
+            $hand->getCardsInTheHandSortedByRank()
+        );
+    }
 }

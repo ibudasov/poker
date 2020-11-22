@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace Poker;
 
+use function array_keys;
+use function array_multisort;
 use function array_values;
+use function natsort;
+use function print_r;
+use const SORT_DESC;
 
 class Hand
 {
@@ -29,20 +34,18 @@ class Hand
     /** @return Card[] */
     public function getCardsInTheHandSortedByRank(): array
     {
-        $sortedCards = [];
+        $unsortedCards = [];
 
         foreach ($this->cards as $card) {
-
-            /**
-             * @todo: ⚠️ If there are 2 cards of the same rank - they will be merged
-             */
-
-            $sortedCards[$card->getValueOfTheCard()] = $card;
+            $unsortedCards[$card->__toString()] = $card->getValueOfTheCard();
         }
 
-        krsort($sortedCards);
+        array_multisort($unsortedCards, SORT_DESC);
 
-        $sortedCards = array_values($sortedCards);
+        $sortedCards = [];
+        foreach ($unsortedCards as $key => $card) {
+            $sortedCards[] = Card::fromString($key);
+        }
 
         return $sortedCards;
     }
