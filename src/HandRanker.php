@@ -21,14 +21,16 @@ final class HandRanker
     /** @return HandRanking[] */
     private function getPrioritizedListOfRankings(): array
     {
-        $list[FullHouse::getSortingPriorityOfThisRanking()] = new FullHouse();
-        $list[ThreeOfAKind::getSortingPriorityOfThisRanking()] = new ThreeOfAKind();
-        $list[Pair::getSortingPriorityOfThisRanking()] = new Pair();
-        $list[HighCard::getSortingPriorityOfThisRanking()] = new HighCard();
-        $list[FourOfAKind::getSortingPriorityOfThisRanking()] = new FourOfAKind();
-        $list[StraightFlush::getSortingPriorityOfThisRanking()] = new StraightFlush();
-        $list[RoyalFlush::getSortingPriorityOfThisRanking()] = new RoyalFlush();
-        $list[Flush::getSortingPriorityOfThisRanking()] = new Flush();
+        $list = [
+            FullHouse::getSortingPriorityOfThisRanking() => new FullHouse(),
+            ThreeOfAKind::getSortingPriorityOfThisRanking() => new ThreeOfAKind(),
+            Pair::getSortingPriorityOfThisRanking() => new Pair(),
+            HighCard::getSortingPriorityOfThisRanking() => new HighCard(),
+            FourOfAKind::getSortingPriorityOfThisRanking() => new FourOfAKind(),
+            StraightFlush::getSortingPriorityOfThisRanking() => new StraightFlush(),
+            RoyalFlush::getSortingPriorityOfThisRanking() => new RoyalFlush(),
+            Flush::getSortingPriorityOfThisRanking() => new Flush(),
+        ];
 
         ksort($list);
 
