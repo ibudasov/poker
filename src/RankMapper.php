@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Poker;
 
-class RankMapper
+final class RankMapper
 {
     public static function getValueOfRank(Rank $rank): int
     {

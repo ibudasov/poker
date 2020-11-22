@@ -8,7 +8,7 @@ use function current;
 use Poker\Hand;
 use Poker\Rank;
 
-class RoyalFlush implements HandRanking
+final class RoyalFlush implements HandRanking
 {
     public function matchesThis(Hand $hand): bool
     {

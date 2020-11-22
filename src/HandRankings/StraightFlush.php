@@ -6,7 +6,7 @@ namespace Poker\HandRankings;
 
 use Poker\Hand;
 
-class StraightFlush implements HandRanking
+final class StraightFlush implements HandRanking
 {
     public function matchesThis(Hand $hand): bool
     {

@@ -11,7 +11,7 @@ use Poker\Rank;
 use Poker\SorryMax5CardsAreAllowedAccordingToTheRules;
 use Poker\Suit;
 
-class HandTest extends TestCase
+final class HandTest extends TestCase
 {
     /** @test */
     public function max_5_cards_are_allowed_in_the_hand(): void

@@ -8,7 +8,7 @@ use function array_count_values;
 use function array_search;
 use Poker\Hand;
 
-class FullHouse implements HandRanking
+final class FullHouse implements HandRanking
 {
     public function matchesThis(Hand $hand): bool
     {

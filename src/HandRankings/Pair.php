@@ -7,7 +7,7 @@ namespace Poker\HandRankings;
 use function array_search;
 use Poker\Hand;
 
-class Pair implements HandRanking
+final class Pair implements HandRanking
 {
     public function matchesThis(Hand $hand): bool
     {

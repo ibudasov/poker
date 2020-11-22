@@ -9,7 +9,7 @@ use function current;
 use function preg_match;
 use const SORT_DESC;
 
-class Hand
+final class Hand
 {
     /** @var Card[] */
     private $cards;

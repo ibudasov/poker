@@ -15,7 +15,7 @@ use Poker\HandRankings\RoyalFlush;
 use Poker\HandRankings\StraightFlush;
 use Poker\HandRankings\ThreeOfAKind;
 
-class HandRanker
+final class HandRanker
 {
     /** @return HandRanking[] */
     private function getPrioritizedListOfRankings(): array

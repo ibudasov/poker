@@ -11,7 +11,7 @@ use Poker\HandRankings\HighCard;
 use Poker\Rank;
 use Poker\Suit;
 
-class HighCardTest extends TestCase
+final class HighCardTest extends TestCase
 {
     /** @test */
     public function highCard_can_be_detected_if_its_there(): void

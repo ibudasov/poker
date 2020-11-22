@@ -11,7 +11,7 @@ use Poker\HandRankings\Pair;
 use Poker\Rank;
 use Poker\Suit;
 
-class PairTest extends TestCase
+final class PairTest extends TestCase
 {
     /** @test */
     public function pair_of_card_can_be_detected_if_its_there(): void

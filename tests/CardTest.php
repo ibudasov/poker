@@ -9,7 +9,7 @@ use Poker\Card;
 use Poker\Rank;
 use Poker\Suit;
 
-class CardTest extends TestCase
+final class CardTest extends TestCase
 {
     /** @test */
     public function card_can_be_created_from_string(): void

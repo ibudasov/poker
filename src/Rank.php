@@ -21,7 +21,7 @@ use MyCLabs\Enum\Enum;
  * @method static self THREE()
  * @method static self TWO()
  */
-class Rank extends Enum
+final class Rank extends Enum
 {
     private const ACE = 'A';
     private const KING = 'K';

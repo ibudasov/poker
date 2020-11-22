@@ -7,7 +7,7 @@ namespace Poker;
 use BadMethodCallException;
 use function mb_strlen;
 
-class Card
+final class Card
 {
     /** @var Rank */
     private $rank;

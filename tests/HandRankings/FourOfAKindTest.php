@@ -11,7 +11,7 @@ use Poker\HandRankings\FourOfAKind;
 use Poker\Rank;
 use Poker\Suit;
 
-class FourOfAKindTest extends TestCase
+final class FourOfAKindTest extends TestCase
 {
     /** @test */
     public function fourOfAKind_are_detected_nicely(): void

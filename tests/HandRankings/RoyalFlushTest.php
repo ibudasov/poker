@@ -11,7 +11,7 @@ use Poker\HandRankings\RoyalFlush;
 use Poker\Rank;
 use Poker\Suit;
 
-class RoyalFlushTest extends TestCase
+final class RoyalFlushTest extends TestCase
 {
     /** @test */
     public function royalFlush_is_detected_nicely(): void

@@ -11,7 +11,7 @@ use Poker\HandRankings\FullHouse;
 use Poker\Rank;
 use Poker\Suit;
 
-class FullHouseTest extends TestCase
+final class FullHouseTest extends TestCase
 {
     /** @test */
     public function fullHouse_can_be_detected_if_its_there(): void

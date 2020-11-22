@@ -12,7 +12,7 @@ use MyCLabs\Enum\Enum;
  * @method static self HEARTS()
  * @method static self SPADES()
  */
-class Suit extends Enum
+final class Suit extends Enum
 {
     /**
      * Nice emojis from OSX appeared to be something different then unicode chars,

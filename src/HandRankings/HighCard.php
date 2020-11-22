@@ -12,7 +12,7 @@ use Poker\Hand;
  * better highest card wins. If the highest cards are equal the second cards are compared; if they are equal too the
  * third cards are compared, and so on. So A-J-9-5-3 beats A-10-9-6-4 because the jack beats the ten.
  */
-class HighCard implements HandRanking
+final class HighCard implements HandRanking
 {
     public function matchesThis(Hand $hand): bool
     {

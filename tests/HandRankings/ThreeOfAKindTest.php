@@ -11,7 +11,7 @@ use Poker\HandRankings\ThreeOfAKind;
 use Poker\Rank;
 use Poker\Suit;
 
-class ThreeOfAKindTest extends TestCase
+final class ThreeOfAKindTest extends TestCase
 {
     /** @test */
     public function three_equal_ranks_are_detected_nicely(): void

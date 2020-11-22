@@ -18,7 +18,7 @@ use Poker\HandRankings\ThreeOfAKind;
 use Poker\Rank;
 use Poker\Suit;
 
-class HandRankerTest extends TestCase
+final class HandRankerTest extends TestCase
 {
     /** @test */
     public function highCard_is_chosen_among_other_rankings_when_applicable(): void

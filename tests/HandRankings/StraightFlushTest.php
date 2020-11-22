@@ -11,7 +11,7 @@ use Poker\HandRankings\StraightFlush;
 use Poker\Rank;
 use Poker\Suit;
 
-class StraightFlushTest extends TestCase
+final class StraightFlushTest extends TestCase
 {
     /** @test */
     public function straightFlush_are_detected_nicely(): void
