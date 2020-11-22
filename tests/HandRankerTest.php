@@ -11,6 +11,7 @@ use Poker\HandRankings\FourOfAKind;
 use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HighCard;
 use Poker\HandRankings\Pair;
+use Poker\HandRankings\RoyalFlush;
 use Poker\HandRankings\StraightFlush;
 use Poker\HandRankings\ThreeOfAKind;
 use Poker\Rank;
@@ -112,6 +113,22 @@ class HandRankerTest extends TestCase
         $handRanker = new HandRanker();
 
         self::assertEquals(StraightFlush::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
+    }
+
+    /** @test */
+    public function royalFlush_is_chosen_among_other_rankings_when_applicable(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::ACE(), Suit::CLUBS()),
+            new Card(Rank::KING(), Suit::CLUBS()),
+            new Card(Rank::QUEEN(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+            new Card(Rank::TEN(), Suit::CLUBS()),
+        ]);
+
+        $handRanker = new HandRanker();
+
+        self::assertEquals(RoyalFlush::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
     }
 
 }

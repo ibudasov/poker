@@ -10,6 +10,7 @@ use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HandRanking;
 use Poker\HandRankings\HighCard;
 use Poker\HandRankings\Pair;
+use Poker\HandRankings\RoyalFlush;
 use Poker\HandRankings\StraightFlush;
 use Poker\HandRankings\ThreeOfAKind;
 use function ksort;
@@ -25,6 +26,7 @@ class HandRanker
         $list[HighCard::getSortingPriorityOfThisRanking()] = new HighCard();
         $list[FourOfAKind::getSortingPriorityOfThisRanking()] = new FourOfAKind();
         $list[StraightFlush::getSortingPriorityOfThisRanking()] = new StraightFlush();
+        $list[RoyalFlush::getSortingPriorityOfThisRanking()] = new RoyalFlush();
 
         ksort($list);
 
