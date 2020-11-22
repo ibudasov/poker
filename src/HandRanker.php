@@ -6,10 +6,12 @@ namespace Poker;
 
 use Poker\HandRankings\HandRanking;
 use Poker\HandRankings\HighCard;
+use Poker\HandRankings\Pair;
 
 class HandRanker
 {
     private const PRIORITIZED_LIST_OF_RANKINGS = [
+        Pair::class,
         HighCard::class,
     ];
 
