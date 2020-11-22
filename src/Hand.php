@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Poker;
 
-use function array_keys;
 use function array_multisort;
-use function array_values;
-use function natsort;
-use function print_r;
+use function preg_match;
 use const SORT_DESC;
 
 class Hand
@@ -48,5 +45,18 @@ class Hand
         }
 
         return $sortedCards;
+    }
+
+    public function isThereASequenceOf5(): bool
+    {
+        $ranksInTheSequence = 'AKQJ1098765432';
+
+        $whatIsInTheHand = '';
+
+        foreach ($this->getCardsInTheHandSortedByRank() as $card) {
+            $whatIsInTheHand .= $card->getRank()->getValue();
+        }
+
+        return 0 !== preg_match('/^' . $whatIsInTheHand . '/', $ranksInTheSequence);
     }
 }

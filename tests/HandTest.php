@@ -73,4 +73,33 @@ class HandTest extends TestCase
             $hand->getCardsInTheHandSortedByRank()
         );
     }
+
+    /** @test */
+    public function sequence_of_5_cards_can_be_detected(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::ACE(), Suit::CLUBS()),
+            new Card(Rank::QUEEN(), Suit::CLUBS()),
+            new Card(Rank::KING(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+        ]);
+
+        self::assertTrue($hand->isThereASequenceOf5());
+    }
+
+    /** @test */
+    public function sequence_of_5_cards_CANNOT_be_detected_if_its_NOT_there(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::SEVEN(), Suit::CLUBS()),
+            new Card(Rank::ACE(), Suit::CLUBS()),
+            new Card(Rank::QUEEN(), Suit::CLUBS()),
+            new Card(Rank::KING(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+        ]);
+
+        self::assertFalse($hand->isThereASequenceOf5());
+    }
+
 }
