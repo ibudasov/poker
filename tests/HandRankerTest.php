@@ -7,6 +7,7 @@ use Poker\Card;
 use Poker\Hand;
 use Poker\HandRanker;
 use PHPUnit\Framework\TestCase;
+use Poker\HandRankings\FourOfAKind;
 use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HighCard;
 use Poker\HandRankings\Pair;
@@ -17,7 +18,7 @@ use Poker\Suit;
 class HandRankerTest extends TestCase
 {
     /** @test */
-    public function highCard_ranking_work_for_us_when_needed(): void
+    public function highCard_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -33,7 +34,7 @@ class HandRankerTest extends TestCase
     }
 
     /** @test */
-    public function pair_ranking_work_for_us_when_applicable(): void
+    public function pair_ranking_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -49,7 +50,7 @@ class HandRankerTest extends TestCase
     }
 
     /** @test */
-    public function threeOfAKind_work_for_us_when_applicable(): void
+    public function threeOfAKind_is_chosen_among_other_rankings_when_applicable(): void
     {
         $hand = new Hand(...[
             new Card(Rank::TEN(), Suit::CLUBS()),
@@ -80,5 +81,20 @@ class HandRankerTest extends TestCase
         self::assertEquals(FullHouse::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
     }
 
+    /** @test */
+    public function fourOfAKind_is_chosen_among_other_rankings_when_applicable(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::TEN(), Suit::HEARTS()),
+            new Card(Rank::TEN(), Suit::DIAMONDS()),
+            new Card(Rank::TEN(), Suit::SPADES()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+        ]);
+
+        $handRanker = new HandRanker();
+
+        self::assertEquals(FourOfAKind::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
+    }
 
 }

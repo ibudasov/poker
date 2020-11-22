@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Poker;
 
 use LogicException;
+use Poker\HandRankings\FourOfAKind;
 use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HandRanking;
 use Poker\HandRankings\HighCard;
@@ -21,6 +22,7 @@ class HandRanker
         $list[ThreeOfAKind::getSortingPriorityOfThisRanking()] = new ThreeOfAKind();
         $list[Pair::getSortingPriorityOfThisRanking()] = new Pair();
         $list[HighCard::getSortingPriorityOfThisRanking()] = new HighCard();
+        $list[FourOfAKind::getSortingPriorityOfThisRanking()] = new FourOfAKind();
 
         ksort($list);
 
