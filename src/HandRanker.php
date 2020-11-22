@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Poker;
 
+use Poker\HandRankings\Flush;
 use function ksort;
 use LogicException;
 use Poker\HandRankings\FourOfAKind;
@@ -27,6 +28,7 @@ final class HandRanker
         $list[FourOfAKind::getSortingPriorityOfThisRanking()] = new FourOfAKind();
         $list[StraightFlush::getSortingPriorityOfThisRanking()] = new StraightFlush();
         $list[RoyalFlush::getSortingPriorityOfThisRanking()] = new RoyalFlush();
+        $list[Flush::getSortingPriorityOfThisRanking()] = new Flush();
 
         ksort($list);
 

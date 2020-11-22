@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Poker\Card;
 use Poker\Hand;
 use Poker\HandRanker;
+use Poker\HandRankings\Flush;
 use Poker\HandRankings\FourOfAKind;
 use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HighCard;
@@ -130,5 +131,21 @@ final class HandRankerTest extends TestCase
         $handRanker = new HandRanker();
 
         self::assertEquals(RoyalFlush::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
+    }
+
+    /** @test */
+    function flush_is_chosen_among_other_rankings_when_applicable(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::ACE(), Suit::CLUBS()),
+            new Card(Rank::KING(), Suit::CLUBS()),
+            new Card(Rank::QUEEN(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+            new Card(Rank::SEVEN(), Suit::CLUBS()),
+        ]);
+
+        $handRanker = new HandRanker();
+
+        self::assertEquals(Flush::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
     }
 }
