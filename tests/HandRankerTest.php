@@ -16,6 +16,7 @@ use Poker\HandRankings\Pair;
 use Poker\HandRankings\RoyalFlush;
 use Poker\HandRankings\StraightFlush;
 use Poker\HandRankings\ThreeOfAKind;
+use Poker\HandRankings\TwoPair;
 use Poker\Rank;
 use Poker\Suit;
 
@@ -28,7 +29,7 @@ final class HandRankerTest extends TestCase
             new Card(Rank::TEN(), Suit::CLUBS()),
             new Card(Rank::ACE(), Suit::CLUBS()),
             new Card(Rank::SEVEN(), Suit::CLUBS()),
-            new Card(Rank::KING(), Suit::CLUBS()),
+            new Card(Rank::KING(), Suit::HEARTS()),
             new Card(Rank::JACK(), Suit::CLUBS()),
         ]);
 
@@ -147,5 +148,21 @@ final class HandRankerTest extends TestCase
         $handRanker = new HandRanker();
 
         self::assertEquals(Flush::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
+    }
+
+    /** @test */
+    function twoPair_is_chosen_among_other_rankings_when_applicable(): void
+    {
+        $hand = new Hand(...[
+            new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::TEN(), Suit::HEARTS()),
+            new Card(Rank::NINE(), Suit::DIAMONDS()),
+            new Card(Rank::NINE(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+        ]);
+
+        $handRanker = new HandRanker();
+
+        self::assertEquals(TwoPair::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
     }
 }

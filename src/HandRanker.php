@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Poker;
 
-use Poker\HandRankings\Flush;
+use Poker\HandRankings\TwoPair;
 use function ksort;
 use LogicException;
+use Poker\HandRankings\Flush;
 use Poker\HandRankings\FourOfAKind;
 use Poker\HandRankings\FullHouse;
 use Poker\HandRankings\HandRanking;
@@ -30,6 +31,7 @@ final class HandRanker
             StraightFlush::getSortingPriorityOfThisRanking() => new StraightFlush(),
             RoyalFlush::getSortingPriorityOfThisRanking() => new RoyalFlush(),
             Flush::getSortingPriorityOfThisRanking() => new Flush(),
+            TwoPair::getSortingPriorityOfThisRanking() => new TwoPair(),
         ];
 
         ksort($list);

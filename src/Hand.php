@@ -7,6 +7,9 @@ namespace Poker;
 use function array_multisort;
 use function current;
 use function preg_match;
+use function unserialize;
+use function var_dump;
+use const PHP_EOL;
 use const SORT_DESC;
 
 final class Hand
@@ -35,14 +38,15 @@ final class Hand
         $unsortedCards = [];
 
         foreach ($this->cards as $card) {
-            $unsortedCards[$card->__toString()] = $card->getValueOfTheCard();
+            $serialize = serialize($card);
+            $unsortedCards[$serialize] = $card->getValueOfTheCard();
         }
 
         array_multisort($unsortedCards, SORT_DESC);
 
         $sortedCards = [];
         foreach ($unsortedCards as $key => $card) {
-            $sortedCards[] = Card::fromString($key);
+            $sortedCards[] = unserialize($key, [Card::class]);
         }
 
         return $sortedCards;
