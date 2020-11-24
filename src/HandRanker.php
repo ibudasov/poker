@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Poker;
 
 use Poker\HandRankings\TwoPair;
+use function array_multisort;
 use function ksort;
 use LogicException;
 use Poker\HandRankings\Flush;
@@ -16,6 +17,10 @@ use Poker\HandRankings\Pair;
 use Poker\HandRankings\RoyalFlush;
 use Poker\HandRankings\StraightFlush;
 use Poker\HandRankings\ThreeOfAKind;
+use function serialize;
+use function unserialize;
+use const SORT_ASC;
+use const SORT_DESC;
 
 final class HandRanker
 {
@@ -48,5 +53,25 @@ final class HandRanker
         }
 
         throw new LogicException('We could not determine the rank of the hand, it seems to be a programming mistake');
+    }
+
+    /** @return Hand[] sorted array of hands */
+    function rankMultipleHands(Hand ...$hands): array
+    {
+        $unsortedHands = [];
+
+        foreach ($hands as $hand) {
+            $serialize = serialize($hand);
+            $unsortedHands[$serialize] = $this->rankTheHand($hand);
+        }
+
+        array_multisort($unsortedHands, SORT_ASC);
+
+        $sortedHands = [];
+        foreach ($unsortedHands as $key => $card) {
+            $sortedHands[] = unserialize($key, [Hand::class]);
+        }
+
+        return $sortedHands;
     }
 }

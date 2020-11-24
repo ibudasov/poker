@@ -165,4 +165,47 @@ final class HandRankerTest extends TestCase
 
         self::assertEquals(TwoPair::getSortingPriorityOfThisRanking(), $handRanker->rankTheHand($hand));
     }
+
+    /** @test */
+    function multiple_hands_can_be_ranked_and_sorted(): void
+    {
+        $twoPair = new Hand(...[
+            new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::TEN(), Suit::HEARTS()),
+            new Card(Rank::NINE(), Suit::DIAMONDS()),
+            new Card(Rank::NINE(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+        ]);
+
+        $royalFlush = new Hand(...[
+            new Card(Rank::ACE(), Suit::CLUBS()),
+            new Card(Rank::KING(), Suit::CLUBS()),
+            new Card(Rank::QUEEN(), Suit::CLUBS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+            new Card(Rank::TEN(), Suit::CLUBS()),
+        ]);
+
+        $highCard = new Hand(...[
+            new Card(Rank::TEN(), Suit::CLUBS()),
+            new Card(Rank::ACE(), Suit::CLUBS()),
+            new Card(Rank::SEVEN(), Suit::CLUBS()),
+            new Card(Rank::KING(), Suit::HEARTS()),
+            new Card(Rank::JACK(), Suit::CLUBS()),
+        ]);
+
+        $handRanker = new HandRanker();
+
+        self::assertEquals(
+            [
+                $royalFlush,
+                $twoPair,
+                $highCard,
+            ],
+            $handRanker->rankMultipleHands(...[
+                $twoPair,
+                $royalFlush,
+                $highCard
+            ])
+        );
+    }
 }
