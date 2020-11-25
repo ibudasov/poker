@@ -65,3 +65,8 @@ $handRanker->rankMultipleHands(...[
 ]);
 
 ```
+# Todo
+
+- Hand does not validate cards inside, so there might be duplicates. Also there is no validation of cards across hands. So it's up to the client application 
+- If 2 hands are ranked the same — they will NOT be re-ranked, which is needed by the rules. This is something for the future.
+
